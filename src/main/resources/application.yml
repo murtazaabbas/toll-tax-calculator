@@ -1,0 +1,7 @@
+spring:
+  config:
+    import:
+      - "classpath:app-config.yml"
+      - "classpath:toll-fee-config.yml"
+      - "classpath:toll-free-dates-config.yml"
+      - "classpath:toll-vehicles-config.yml"

@@ -1,0 +1,16 @@
+vehicles-data:
+  vehicles:
+    - type: "Car"
+      tollFree: false
+    - type: "Motorbike"
+      tollFree: true
+    - type: "Bus"
+      tollFree: true
+    - type: "Emergency"
+      tollFree: true
+    - type: "Diplomat"
+      tollFree: true
+    - type: "Foreign"
+      tollFree: true
+    - type: "Military"
+      tollFree: true

@@ -1,0 +1,4 @@
+app-config:
+  maxFeePerDay: 60
+  allowYear: 2013
+  defaultTollFeeCity: gothenburg

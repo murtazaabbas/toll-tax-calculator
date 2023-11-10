@@ -1,0 +1,355 @@
+{
+	"info": {
+		"_postman_id": "79e88b08-979c-433a-9fdd-ce03b754e1ad",
+		"name": "toll-tax-calculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9048399",
+		"_collection_link": "https://restless-astronaut-141872.postman.co/workspace/dev~0fdee53a-79aa-4c14-acb2-56c403634fe9/collection/9048399-79e88b08-979c-433a-9fdd-ce03b754e1ad?action=share&source=collection_link&creator=9048399"
+	},
+	"item": [
+		{
+			"name": "toll-tax-multiple-dates-multiple-times",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\": \"gothenburg\",\r\n    \"vehicle\": \"car\",\r\n    \"tollDateTime\": [\r\n        \"2013-01-14 21:00:00\",\r\n        \"2013-01-15 21:00:00\",\r\n        \"2013-02-07 06:23:27\",\r\n        \"2013-02-07 15:27:00\",\r\n        \"2013-02-08 06:27:00\",\r\n        \"2013-02-08 06:20:27\",\r\n        \"2013-02-08 14:35:00\",\r\n        \"2013-02-08 15:29:00\",\r\n        \"2013-02-08 15:47:00\",\r\n        \"2013-02-08 16:01:00\",\r\n        \"2013-02-08 16:48:00\",\r\n        \"2013-02-08 17:49:00\",\r\n        \"2013-02-08 18:29:00\",\r\n        \"2013-02-08 18:35:00\",\r\n        \"2013-03-26 14:25:00\",\r\n        \"2013-03-28 14:07:27\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/toll-tax/calculate-fee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"toll-tax",
+						"calculate-fee"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": \"gothenburg\",\r\n    \"vehicle\": \"car\",\r\n    \"tollDateTime\": [\r\n        \"2013-01-14 21:00:00\",\r\n        \"2013-01-15 21:00:00\",\r\n        \"2013-02-07 06:23:27\",\r\n        \"2013-02-07 15:27:00\",\r\n        \"2013-02-08 06:27:00\",\r\n        \"2013-02-08 06:20:27\",\r\n        \"2013-02-08 14:35:00\",\r\n        \"2013-02-08 15:29:00\",\r\n        \"2013-02-08 15:47:00\",\r\n        \"2013-02-08 16:01:00\",\r\n        \"2013-02-08 16:48:00\",\r\n        \"2013-02-08 17:49:00\",\r\n        \"2013-02-08 18:29:00\",\r\n        \"2013-02-08 18:35:00\",\r\n        \"2013-03-26 14:25:00\",\r\n        \"2013-03-28 14:07:27\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/toll-tax/calculate-fee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"toll-tax",
+								"calculate-fee"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Nov 2023 02:15:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"fee\": 81\n}"
+				}
+			]
+		},
+		{
+			"name": "toll-tax-highest-fee-in-1hr-interval",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\": \"gothenburg\",\r\n    \"vehicle\": \"car\",\r\n    \"tollDateTime\": [\r\n        \"2013-02-07 06:23:27\",\r\n        \"2013-02-07 06:35:27\",\r\n        \"2013-02-07 06:50:27\",\r\n        \"2013-02-07 07:10:27\",\r\n        \"2013-02-07 07:23:00\",\r\n        \"2013-02-07 15:00:00\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/toll-tax/calculate-fee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"toll-tax",
+						"calculate-fee"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "toll-tax-fee-multiple-dates Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": \"gothenburg\",\r\n    \"vehicle\": \"car\",\r\n    \"tollDateTime\": [\r\n        \"2013-02-07 06:23:27\",\r\n        \"2013-02-07 06:35:27\",\r\n        \"2013-02-07 06:50:27\",\r\n        \"2013-02-07 07:10:27\",\r\n        \"2013-02-07 07:23:00\",\r\n        \"2013-02-07 15:00:00\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/toll-tax/calculate-fee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"toll-tax",
+								"calculate-fee"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Nov 2023 02:10:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"fee\": 31\n}"
+				}
+			]
+		},
+		{
+			"name": "toll-tax-fee-date-time-multiple-slots",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\": \"gothenburg\",\r\n    \"vehicle\": \"car\",\r\n    \"tollDateTime\": [\r\n        \"2013-02-07 06:23:27\",\r\n        \"2013-02-07 06:35:27\",\r\n        \"2013-02-07 06:50:27\",\r\n        \"2013-02-07 07:10:27\",\r\n        \"2013-02-07 07:23:00\",\r\n        \"2013-02-08 07:10:27\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/toll-tax/calculate-fee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"toll-tax",
+						"calculate-fee"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "toll-tax-fee-multiple-slots-1hr Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": \"gothenburg\",\r\n    \"vehicle\": \"car\",\r\n    \"tollDateTime\": [\r\n        \"2013-02-07 06:23:27\",\r\n        \"2013-02-07 06:35:27\",\r\n        \"2013-02-07 06:50:27\",\r\n        \"2013-02-07 07:10:27\",\r\n        \"2013-02-07 07:23:00\",\r\n        \"2013-02-08 07:10:27\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/toll-tax/calculate-fee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"toll-tax",
+								"calculate-fee"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Nov 2023 02:16:02 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"fee\": 36\n}"
+				}
+			]
+		},
+		{
+			"name": "toll-tax-fee-invalid-vehicle-error",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\": \"gothenburg\",\r\n    \"vehicle\": \"tricyle\",\r\n    \"tollDateTime\": [\r\n        \"2013-02-07 06:23:27\",\r\n        \"2013-02-07 06:35:27\",\r\n        \"2013-02-07 06:50:27\",\r\n        \"2013-02-07 07:10:27\",\r\n        \"2013-02-07 07:23:00\",\r\n        \"2013-02-08 07:10:27\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/toll-tax/calculate-fee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"toll-tax",
+						"calculate-fee"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "toll-tax-fee-date-time-multiple-slots Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": \"gothenburg\",\r\n    \"vehicle\": \"tricyle\",\r\n    \"tollDateTime\": [\r\n        \"2013-02-07 06:23:27\",\r\n        \"2013-02-07 06:35:27\",\r\n        \"2013-02-07 06:50:27\",\r\n        \"2013-02-07 07:10:27\",\r\n        \"2013-02-07 07:23:00\",\r\n        \"2013-02-08 07:10:27\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/toll-tax/calculate-fee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"toll-tax",
+								"calculate-fee"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Nov 2023 02:16:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"message\": \"Vehicle in parameter is invalid\"\n}"
+				}
+			]
+		}
+	]
+}
